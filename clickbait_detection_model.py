@@ -11,6 +11,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import accuracy_score, classification_report
+# from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
+# import matplotlib.pyplot as plt
 
 
 # Preprocess text function for processing news headlines
@@ -58,6 +60,13 @@ print(f"News Headlines Model Accuracy: {accuracy * 100:.2f}%")
 # Evaluating the model with classification report
 report = classification_report(y_test, y_pred)
 print("News Headlines Classification Report:\n", report)
+
+# # Confusion Matrix for News Headline Clickbait Detection
+# cm = confusion_matrix(y_test, y_pred) 
+# disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=["Non-Clickbait", "Clickbait"])
+# disp.plot(cmap=plt.cm.Blues)  
+# plt.title("Confusion Matrix for News Headline Clickbait Detection")
+# plt.show()
 
 # Function to predict clickbait 
 def detect_clickbait(title):
@@ -140,6 +149,13 @@ print(f"Youtube Title Model Accuracy: {accuracy * 100:.2f}%")
 # Evaluating the model with classification report
 report = classification_report(y_test, Y_pred)
 print("Youtube Title Classification Report:\n", report)
+
+# # Confusion Matrix for Youtube Clickbait detection
+# cm2 = confusion_matrix(y_test, Y_pred) 
+# disp = ConfusionMatrixDisplay(confusion_matrix=cm2, display_labels=["Non-Clickbait", "Clickbait"])
+# disp.plot(cmap=plt.cm.Blues)  
+# plt.title("Confusion Matrix for Youtube Clickbait detection")
+# plt.show()
 
 # Predefined keywords for rule-based detection
 clickbait_keywords = {"shocking", 
